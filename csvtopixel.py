@@ -2,6 +2,8 @@ import csv
 import sys
 from xml.etree import ElementPath
 
+ROW = 26;
+
 def	check_args_and_print(str, islast):
 	if (str == "1"):
 		print("$(NOIR)  $(RESET)", end="");
@@ -19,6 +21,8 @@ def	check_args_and_print(str, islast):
 		print("$(ROSE)  $(RESET)", end="");
 	elif (str == "8"):
 		print("$(CYAN)  $(RESET)", end="");
+	elif (str == "9"):
+		print("$(GRIS)  $(RESET)", end="");
 	else:
 		print("  ", end="");
 	if (islast):
@@ -29,7 +33,7 @@ def	read_csv(filename):
 		spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|');
 		i = 0;
 		for row in csvfile:
-			if (i == 26):
+			if (i == ROW):
 				return;
 			print("@printf \"", end="");
 			elems = row.split(",");
